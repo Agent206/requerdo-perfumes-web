@@ -16,6 +16,7 @@ export interface Product {
   };
   bestSeller?: boolean;
   isNew?: boolean;
+  discontinued?: boolean;
 }
 
 export interface NavItem {

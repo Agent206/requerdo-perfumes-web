@@ -1,15 +1,20 @@
 
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export const CustomCursor: React.FC = () => {
-  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+
+  const springConfig = { damping: 28, stiffness: 350, mass: 0.5 };
+  const smoothX = useSpring(cursorX, springConfig);
+  const smoothY = useSpring(cursorY, springConfig);
+
   const [isOverInteractive, setIsOverInteractive] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if the device is mobile/touch to disable custom cursor
     const checkMobile = () => {
       setIsMobile(window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window);
     };
@@ -18,29 +23,28 @@ export const CustomCursor: React.FC = () => {
     window.addEventListener('resize', checkMobile);
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isVisible) setIsVisible(true);
-      setMousePos({ x: e.clientX, y: e.clientY });
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+      setIsVisible(prev => (prev ? prev : true));
 
-      // Detect interactive elements: links, buttons, images, icons, and inputs
-      const target = e.target as HTMLElement;
+      const target = e.target as HTMLElement | null;
+      if (!target || typeof target.closest !== 'function') return;
+
+      const tag = target.tagName.toLowerCase();
       const isInteractive = 
-                   target.tagName.toLowerCase() === 'img' || 
-                   target.tagName.toLowerCase() === 'button' || 
-                   target.tagName.toLowerCase() === 'a' ||
-                   target.tagName.toLowerCase() === 'svg' ||
-                   target.closest('img') || 
-                   target.closest('button') || 
-                   target.closest('a') ||
-                   target.closest('svg') ||
-                   target.closest('[data-cursor-enlarge="true"]');
+        tag === 'img' || 
+        tag === 'button' || 
+        tag === 'a' ||
+        tag === 'svg' ||
+        !!target.closest('img, button, a, svg, [data-cursor-enlarge="true"]');
       
-      setIsOverInteractive(!!isInteractive);
+      setIsOverInteractive(prev => (prev === isInteractive ? prev : isInteractive));
     };
 
     const handleMouseOut = () => setIsVisible(false);
     const handleMouseOver = () => setIsVisible(true);
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseOut);
     document.addEventListener('mouseenter', handleMouseOver);
 
@@ -50,36 +54,29 @@ export const CustomCursor: React.FC = () => {
       document.removeEventListener('mouseleave', handleMouseOut);
       document.removeEventListener('mouseenter', handleMouseOver);
     };
-  }, [isVisible]);
+  }, [cursorX, cursorY]);
 
-  // Early return for mobile or initial state
   if (isMobile || !isVisible) return null;
 
-  // Normal: 30px solid. Interactive: 50px hollow.
   const size = isOverInteractive ? 50 : 30;
-  const offset = size / 2;
 
   return (
     <motion.div
-      className="fixed pointer-events-none z-[9999] rounded-full border-[1.5px] border-white box-border"
-      animate={{
-        x: mousePos.x - offset,
-        y: mousePos.y - offset,
-        width: size,
-        height: size,
-        // Invert logic: 'difference' creates the inverted look.
-        // On interactive elements, we make it transparent so it becomes a ring.
-        backgroundColor: isOverInteractive ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)',
+      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border-[1.5px] border-white box-border -translate-x-1/2 -translate-y-1/2"
+      style={{
+        x: smoothX,
+        y: smoothY,
         mixBlendMode: 'difference',
       }}
+      animate={{
+        width: size,
+        height: size,
+        backgroundColor: isOverInteractive ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)',
+      }}
       transition={{
-        // Coordinate follow (tween for smoothness)
-        x: { type: 'tween', ease: 'circOut', duration: 0.12 },
-        y: { type: 'tween', ease: 'circOut', duration: 0.12 },
-        // Visual state transitions (size and transparency)
-        width: { duration: 0.3, ease: 'easeOut' },
-        height: { duration: 0.3, ease: 'easeOut' },
-        backgroundColor: { duration: 0.3 },
+        width: { duration: 0.25, ease: 'easeOut' },
+        height: { duration: 0.25, ease: 'easeOut' },
+        backgroundColor: { duration: 0.25 },
       }}
     />
   );

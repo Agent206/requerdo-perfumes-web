@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingBag } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import { NAV_ITEMS, INSTAGRAM_URL, FACEBOOK_URL } from '../constants';
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -157,8 +157,22 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, activePa
               <div className="pt-6 border-t border-white/5 flex flex-col gap-4">
                 <p className="text-[10px] text-neutral-600 uppercase tracking-widest font-bold">Follow Our Journey</p>
                 <div className="flex gap-6">
-                  <a href="#" className="text-neutral-500 hover:text-white transition-colors uppercase tracking-widest text-[10px]">Instagram</a>
-                  <a href="#" className="text-neutral-500 hover:text-white transition-colors uppercase tracking-widest text-[10px]">Facebook</a>
+                  <a 
+                    href={INSTAGRAM_URL} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-neutral-500 hover:text-white transition-colors uppercase tracking-widest text-[10px]"
+                  >
+                    Instagram
+                  </a>
+                  <a 
+                    href={FACEBOOK_URL} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-neutral-500 hover:text-white transition-colors uppercase tracking-widest text-[10px]"
+                  >
+                    Facebook
+                  </a>
                 </div>
               </div>
             </motion.div>

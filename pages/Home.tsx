@@ -13,6 +13,7 @@ interface HomeProps {
 
 export const Home: React.FC<HomeProps> = ({ onAddToCart, onViewDetails, setIsScrolled }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const lastScrolledRef = useRef(false);
 
   useEffect(() => {
     const handleScrollEvent = () => {
@@ -26,8 +27,11 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart, onViewDetails, setIsScr
   }, []);
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const scrollTop = e.currentTarget.scrollTop;
-    setIsScrolled(scrollTop > 50);
+    const scrolled = e.currentTarget.scrollTop > 50;
+    if (scrolled !== lastScrolledRef.current) {
+      lastScrolledRef.current = scrolled;
+      setIsScrolled(scrolled);
+    }
   };
 
   return (

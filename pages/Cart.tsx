@@ -27,7 +27,7 @@ export const Cart: React.FC<CartProps> = ({ cart, onUpdateQuantity, onRemove, on
     message += `\n\nPlease confirm my order.`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (

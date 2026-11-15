@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface PageTransitionProps {
   isTransitioning: boolean;
+  label?: string;
 }
 
-export const PageTransition: React.FC<PageTransitionProps> = ({ isTransitioning }) => {
+export const PageTransition: React.FC<PageTransitionProps> = ({ isTransitioning, label = 'The Alchemy of Scent' }) => {
   return (
     <AnimatePresence mode="wait">
       {isTransitioning && (
@@ -27,9 +28,13 @@ export const PageTransition: React.FC<PageTransitionProps> = ({ isTransitioning 
             <span className="text-white font-serif text-3xl md:text-5xl tracking-[0.4em] pl-[0.4em] font-bold text-center">
               REQUERDO
             </span>
-            <span className="text-[0.6rem] uppercase tracking-[0.8em] pl-[0.8em] text-neutral-500 mt-2">
-              The Alchemy of Scent
-            </span>
+            <div className="flex items-center gap-4 mt-3">
+              <span className="h-[1px] w-6 bg-white/20"></span>
+              <span className="text-[0.65rem] uppercase tracking-[0.6em] pl-[0.6em] text-neutral-400 text-center">
+                {label}
+              </span>
+              <span className="h-[1px] w-6 bg-white/20"></span>
+            </div>
           </motion.div>
         </motion.div>
       )}

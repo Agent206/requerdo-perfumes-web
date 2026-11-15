@@ -6,7 +6,7 @@ import { Mail, Phone, User, MessageCircle } from 'lucide-react';
 import { WHATSAPP_NUMBER, CONTACT_EMAIL, DISPLAY_PHONE } from '../constants';
 
 const CONTACT_INFO = [
-  { icon: User, label: 'Manager', value: 'Aayan Anis', href: null },
+  { icon: User, label: 'Founder and Creative Director', value: 'Muhammad Aayan Anis', href: null },
   { icon: Phone, label: 'Phone', value: DISPLAY_PHONE, href: `tel:+${WHATSAPP_NUMBER}` },
   { icon: Mail, label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` }
 ];
@@ -16,7 +16,7 @@ export const Contact: React.FC = () => {
   const handleWhatsAppClick = () => {
      const message = "Hello, I have a question about Requerdo Perfumes.";
      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-     window.open(url, '_blank');
+     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (

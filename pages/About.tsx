@@ -14,7 +14,7 @@ const PROCESS_STEPS = [
   { 
     icon: FlaskConical, 
     title: 'Blending', 
-    desc: 'Matured for months in controlled environments to achieve perfect harmony.' 
+    desc: 'Matured for weeks in controlled environments to achieve perfect harmony.' 
   },
   { 
     icon: Gem, 

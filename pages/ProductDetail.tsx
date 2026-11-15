@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Product } from '../types';
 import { Button } from '../components/ui/Button';
 import { Footer } from '../components/Footer';
-import { ArrowLeft, ShoppingBag, Send, Sparkles, Crown } from 'lucide-react';
+import { ArrowLeft, ShoppingBag, Send, Sparkles, Crown, Ban } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../constants';
 
 interface ProductDetailProps {
@@ -15,15 +15,24 @@ interface ProductDetailProps {
 
 export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onAddToCart }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsLoaded(false);
+    if (containerRef.current) {
+      containerRef.current.scrollTop = 0;
+    }
+  }, [product.id]);
   
   const handleBuyNow = () => {
+    if (product.discontinued) return;
     const message = `Hello Requerdo Perfumes, I'm interested in buying ${product.name} (50ml). Please guide me with the order process.`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <div className="pt-20 h-screen w-full overflow-y-auto bg-black flex flex-col">
+    <div ref={containerRef} className="pt-20 h-screen w-full overflow-y-auto bg-black flex flex-col">
        <motion.div
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
@@ -52,7 +61,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, o
                 referrerPolicy="no-referrer"
                 onLoad={() => setIsLoaded(true)}
                 onError={() => setIsLoaded(true)}
-                className={`w-full h-full object-cover transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                className={`w-full h-full object-cover transition-opacity duration-1000 ${isLoaded ? (product.discontinued ? 'opacity-50 grayscale-[40%]' : 'opacity-100') : 'opacity-0'}`}
               />
               {!isLoaded && <div className="absolute inset-0 bg-neutral-950 animate-pulse" />}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -65,8 +74,13 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, o
               transition={{ delay: 0.3, duration: 0.8 }}
               className="lg:order-1 flex flex-col"
             >
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex flex-wrap items-center gap-4 mb-4">
                  <span className="text-xs uppercase tracking-[0.4em] text-neutral-500">Extrait de Parfum • 50 ML</span>
+                 {product.discontinued && (
+                    <span className="flex items-center gap-1 text-[10px] uppercase tracking-widest font-bold text-red-400 bg-red-950/60 px-2 py-0.5 rounded-sm border border-red-500/30">
+                      <Ban className="w-3 h-3" /> Discontinued
+                    </span>
+                 )}
                  {product.isNew && (
                     <span className="flex items-center gap-1 text-[10px] uppercase tracking-widest font-bold text-white bg-white/10 px-2 py-0.5 rounded-sm border border-white/20">
                       <Sparkles className="w-3 h-3" /> New
@@ -128,26 +142,42 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, o
 
               <div className="mt-auto flex flex-col gap-6">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-3xl font-serif text-white">Rs. {product.price.toLocaleString()}</span>
-                  <span className="text-neutral-500 text-sm italic">Inclusive of all taxes</span>
+                  <span className={`text-3xl font-serif ${product.discontinued ? 'text-neutral-500 line-through' : 'text-white'}`}>
+                    Rs. {product.price.toLocaleString()}
+                  </span>
+                  <span className="text-neutral-500 text-sm italic">
+                    {product.discontinued ? 'Currently unavailable' : 'Inclusive of all taxes'}
+                  </span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    variant="primary" 
-                    className="flex-1 flex justify-center items-center gap-2"
-                    onClick={handleBuyNow}
-                  >
-                    <Send className="w-4 h-4" /> Buy Now
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="flex-1 flex justify-center items-center gap-2"
-                    onClick={() => onAddToCart(product)}
-                  >
-                    <ShoppingBag className="w-4 h-4" /> Add to Cart
-                  </Button>
-                </div>
+                {product.discontinued ? (
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button 
+                      variant="outline" 
+                      disabled
+                      className="flex-1 flex justify-center items-center gap-2 opacity-50 cursor-not-allowed hover:bg-transparent hover:border-white/30"
+                    >
+                      <Ban className="w-4 h-4" /> Discontinued — Unavailable for Order
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button 
+                      variant="primary" 
+                      className="flex-1 flex justify-center items-center gap-2"
+                      onClick={handleBuyNow}
+                    >
+                      <Send className="w-4 h-4" /> Buy Now
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="flex-1 flex justify-center items-center gap-2"
+                      onClick={() => onAddToCart(product)}
+                    >
+                      <ShoppingBag className="w-4 h-4" /> Add to Cart
+                    </Button>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>
