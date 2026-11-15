@@ -20,11 +20,11 @@ export const AboutSection: React.FC = () => {
             Affordable Luxury, <br/><span className="italic opacity-80 text-neutral-300">Uncompromised.</span>
           </h2>
           
-          <div className="space-y-8 max-w-2xl mx-auto text-neutral-400">
-            <p className="leading-relaxed font-light text-lg md:text-xl">
+          <div className="space-y-8 max-w-2xl mx-auto text-neutral-300">
+            <p className="font-serif leading-relaxed font-normal text-lg md:text-xl">
               Requerdo Perfumes was born from a simple desire: to make high-quality, long-lasting fragrances accessible without compromising on the experience of luxury.
             </p>
-            <p className="leading-relaxed font-light text-lg md:text-xl">
+            <p className="font-serif leading-relaxed font-normal text-lg md:text-xl">
               Based in Pakistan, we blend local artistry with international standards. We believe that smelling expensive shouldn't have to be expensive. Our "Ethereal Alchemy" represents the magical transformation of rare ingredients into memories that last forever.
             </p>
           </div>

@@ -26,37 +26,20 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    id: 'amber-latte',
-    name: 'Amber Latte',
-    tagline: 'The Gourmand Masterpiece',
-    inspiration: 'Hybrid Fusion of Lattafa Khamrah & GDT Bianco Latte',
-    description: 'A decadent fusion of spicy warmth and creamy sweetness. The perfect companion for those who love to leave a trail of sophisticated comfort.',
-    price: 2000,
-    image: '/assets/aistudio/amber_latte_40ebb931.jpg',
-    imageAlt: 'Amber Latte perfume bottle - Warm gourmand notes',
-    themeColor: 'amber',
-    isNew: true,
+    id: 'enigma',
+    name: 'Enigma',
+    tagline: 'Unspoken Allure',
+    inspiration: 'Invictus aqua',
+    description: 'Icy fresh, yet wrapped in mystery. A fragrance that’s as bold as it is unforgettable.',
+    price: 1800,
+    image: '/assets/aistudio/enigma_a28a9463.jpg',
+    imageAlt: 'Enigma perfume bottle - Cool aquatic scent',
+    themeColor: 'purple',
+    bestSeller: true,
     notes: {
-      top: ['Cinnamon', 'Sweet Caramel', 'Brown Sugar'],
-      heart: ['Bourbon Vanilla', 'Creamy Milk', 'Praline', 'Orange Blossom'],
-      base: ['Tonka Bean', 'Benzoin Resin', 'Sandalwood', 'Amberwood', 'Soft Musk']
-    }
-  },
-  {
-    id: 'wild-rush',
-    name: 'Wild Rush',
-    tagline: 'Untamed Spirit',
-    inspiration: 'Sauvage EDT',
-    description: 'Raw, noble, and powerful. A fragrance that captures the spirit of the open wilderness with a crisp, spicy edge.',
-    price: 2000,
-    image: '/assets/aistudio/wild_rush_e98cb029.jpg',
-    imageAlt: 'Wild Rush perfume bottle - Fresh and spicy',
-    themeColor: 'indigo',
-    isNew: true,
-    notes: {
-      top: ['Calabrian Bergamot', 'Sichuan Pepper'],
-      heart: ['Lavender', 'Pink Pepper', 'Geranium', 'Vetiver'],
-      base: ['Ambroxan', 'Cedarwood', 'Labdanum']
+      top: ['Frozen Apple', 'Italian Lemon', 'Sicilian Bergamot'],
+      heart: ['Plum', 'Orange Blossom', 'Cardamom'],
+      base: ['Driftwood', 'Moss', 'Amber', 'Musk']
     }
   },
   {
@@ -77,19 +60,68 @@ export const PRODUCTS: Product[] = [
     }
   },
   {
-    id: 'enigma',
-    name: 'Enigma',
-    tagline: 'Unspoken Allure',
-    inspiration: 'Invictus aqua',
-    description: 'Icy fresh, yet wrapped in mystery. A fragrance that’s as bold as it is unforgettable.',
-    price: 1800,
-    image: '/assets/aistudio/enigma_a28a9463.jpg',
-    imageAlt: 'Enigma perfume bottle - Cool aquatic scent',
-    themeColor: 'purple',
+    id: 'oud-majeste',
+    name: 'Oud Majesté',
+    tagline: 'Royal Essence',
+    inspiration: 'Gissah Imperial valley',
+    description: 'Powerful, refined, and unforgettable. A bold signature that commands respect.',
+    price: 2200,
+    image: '/assets/aistudio/oud_majeste_d54fa346.jpg',
+    imageAlt: 'Oud Majeste perfume bottle - Rich oud and leather notes',
+    themeColor: 'amber',
+    bestSeller: true,
     notes: {
-      top: ['Frozen Apple', 'Italian Lemon', 'Sicilian Bergamot'],
-      heart: ['Plum', 'Orange Blossom', 'Cardamom'],
-      base: ['Driftwood', 'Moss', 'Amber', 'Musk']
+      top: ['Sicilian Bergamot', 'Saffron', 'Pink Pepper'],
+      heart: ['Oud', 'White Amber', 'Rosemary'],
+      base: ['Leather', 'Musk', 'Haitian Vetiver']
+    }
+  },
+  {
+    id: 'amber-latte',
+    name: 'Amber Latte',
+    tagline: 'The Gourmand Masterpiece',
+    inspiration: 'Hybrid Fusion of Lattafa Khamrah & GDT Bianco Latte',
+    description: 'A decadent fusion of spicy warmth and creamy sweetness. The perfect companion for those who love to leave a trail of sophisticated comfort.',
+    price: 2000,
+    image: '/assets/aistudio/amber_latte_40ebb931.jpg',
+    imageAlt: 'Amber Latte perfume bottle - Warm gourmand notes',
+    themeColor: 'amber',
+    notes: {
+      top: ['Cinnamon', 'Sweet Caramel', 'Brown Sugar'],
+      heart: ['Bourbon Vanilla', 'Creamy Milk', 'Praline', 'Orange Blossom'],
+      base: ['Tonka Bean', 'Benzoin Resin', 'Sandalwood', 'Amberwood', 'Soft Musk']
+    }
+  },
+  {
+    id: 'wild-rush',
+    name: 'Wild Rush',
+    tagline: 'Untamed Spirit',
+    inspiration: 'Sauvage EDT',
+    description: 'Raw, noble, and powerful. A fragrance that captures the spirit of the open wilderness with a crisp, spicy edge.',
+    price: 2000,
+    image: '/assets/aistudio/wild_rush_e98cb029.jpg',
+    imageAlt: 'Wild Rush perfume bottle - Fresh and spicy',
+    themeColor: 'indigo',
+    notes: {
+      top: ['Calabrian Bergamot', 'Sichuan Pepper'],
+      heart: ['Lavender', 'Pink Pepper', 'Geranium', 'Vetiver'],
+      base: ['Ambroxan', 'Cedarwood', 'Labdanum']
+    }
+  },
+  {
+    id: 'aqua-noir',
+    name: 'Aqua Noir',
+    tagline: 'Deep Ocean Mystery',
+    inspiration: 'Davidoff Cool Water',
+    description: 'Freshness that strikes. Depth that stays. Fresh, bold, and undeniably masculine.',
+    price: 1700,
+    image: '/assets/aistudio/aqua_noir_74ac5d1e.jpg', 
+    imageAlt: 'Aqua Noir perfume bottle - Deep ocean freshness',
+    themeColor: 'cyan',
+    notes: {
+      top: ['Bergamot', 'Pineapple Leaf', 'Lavender'],
+      heart: ['Red Apple', 'Dried Fruits', 'Geranium', 'Oakmoss'],
+      base: ['Tonka Bean', 'Sandalwood', 'Woods']
     }
   },
   {
@@ -107,39 +139,6 @@ export const PRODUCTS: Product[] = [
       top: ['Saffron', 'Jasmine'],
       heart: ['Amberwood', 'Hedione'],
       base: ['Fir Resin', 'Sugar', 'Cedarwood', 'Oakmoss']
-    }
-  },
-  {
-    id: 'oud-majeste',
-    name: 'Oud Majesté',
-    tagline: 'Royal Essence',
-    inspiration: 'Gissah Imperial valley',
-    description: 'Powerful, refined, and unforgettable. A bold signature that commands respect.',
-    price: 2200,
-    image: '/assets/aistudio/oud_majeste_d54fa346.jpg',
-    imageAlt: 'Oud Majeste perfume bottle - Rich oud and leather notes',
-    themeColor: 'amber',
-    notes: {
-      top: ['Sicilian Bergamot', 'Saffron', 'Pink Pepper'],
-      heart: ['Oud', 'White Amber', 'Rosemary'],
-      base: ['Leather', 'Musk', 'Haitian Vetiver']
-    },
-    bestSeller: true
-  },
-  {
-    id: 'aqua-noir',
-    name: 'Aqua Noir',
-    tagline: 'Deep Ocean Mystery',
-    inspiration: 'Davidoff Cool Water',
-    description: 'Freshness that strikes. Depth that stays. Fresh, bold, and undeniably masculine.',
-    price: 1700,
-    image: '/assets/aistudio/aqua_noir_74ac5d1e.jpg', 
-    imageAlt: 'Aqua Noir perfume bottle - Deep ocean freshness',
-    themeColor: 'cyan',
-    notes: {
-      top: ['Bergamot', 'Pineapple Leaf', 'Lavender'],
-      heart: ['Red Apple', 'Dried Fruits', 'Geranium', 'Oakmoss'],
-      base: ['Tonka Bean', 'Sandalwood', 'Woods']
     }
   }
 ];

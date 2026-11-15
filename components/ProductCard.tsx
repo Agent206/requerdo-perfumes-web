@@ -46,7 +46,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index, onAddT
              onLoad={() => setIsLoaded(true)}
              onError={() => setIsLoaded(true)}
              className={`object-cover w-full h-full transition-all duration-1000 ${
-               index === 5 ? 'scale-[1.14] origin-top-left group-hover:scale-[1.18]' : 'group-hover:scale-105'
+               product.id === 'twilight' ? 'scale-[1.14] origin-top-left group-hover:scale-[1.18]' : 'group-hover:scale-105'
              } ${
                isLoaded ? (product.discontinued ? 'opacity-50 grayscale-[40%]' : 'opacity-100') : 'opacity-0'
              }`}
