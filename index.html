@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Requerdo Perfumes | Ethereal Alchemy | Luxury Fragrances</title>
+    
+    <!-- PWA & Browser Styling -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    
+    <!-- Favicon & Brand Icons (Base64 of the provided R Logo) -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALySURBVHgB7V2xThtBEMyO8f8f9yM6hNIdEonS0FF6CqVpUqUp6KjofAKFhp7G9AmU3qfQfQKFD6ChpY8IdN5AofMECh8QQmOfEAhvIPQ8AYW3CHTeQLHnLRYY7K69ZndmPDvS50pWp9097Ozs7N6O6AIBY67rOnS73WPTND90XfcnDMNjXdezMAz/hmH4fRzH1+u6/p7n+fVms/m9Wq3+rFarPyLwI9C6ruuzYRh2fN8f9H0/DMPwMwzDv8MwPJXf8f8PwnA/DMNb8v8T3/eXnuf9GoZhOR6P78/OztYisCcB9/r9/r3tdntPAn9NIn4iMT8i8S98S7K/K8Pwmny/S8K/k8B/I1l77XnexaXofDgcLuK4P+C67i0S8AOC7yL8Pgn/vXzP71+v8U746yT658/vO8/zHh8fH/9GoCUBGzYMAxYpInu8/L6K44Fp6MvLywY+9D3fIn6m4P6eYfC5yv8V8T0l8QOQp8f14GvF+JzR7NfB9YnxlYDxmVD6XNntc2W3z5XdPld2+1zZ7XNlt8+V3T5XdvucmS7+3wX8pYAn99+NofNfXvV6+7uE18BPCvjK4F8B30vgK4N/BXwvgS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DLh59K/v4C/FPD0fL/rFvDzf8S3gD94f99H+XWz6/W67Xbe70XG/gX9fH4L+0fG/lX8fG4P+4fK/l39fC4P++fL/vP8A6V/m6I488yEAAAAAElFTkSuQmCC" />
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALySURBVHgB7V2xThtBEMyO8f8f9yM6hNIdEonS0FF6CqVpUqUp6KjofAKFhp7G9AmU3qfQfQKFD6ChpY8IdN5AofMECh8QQmOfEAhvIPQ8AYW3CHTeQLHnLRYY7K69ZndmPDvS50pWp9097Ozs7N6O6AIBY67rOnS73WPTND90XfcnDMNjXdezMAz/hmH4fRzH1+u6/p7n+fVms/m9Wq3+rFarPyLwI9C6ruuzYRh2fN8f9H0/DMPwMwzDv8MwPJXf8f8PwnA/DMNb8v8T3/eXnuf9GoZhOR6P78/OztYisCcB9/r9/r3tdntPAn9NIn4iMT8i8S98S7K/K8Pwmny/S8K/k8B/I1l77XnexaXofDgcLuK4P+C67i0S8AOC7yL8Pgn/vXzP71+v8U746yT658/vO8/zHh8fH/9GoCUBGzYMAxYpInu8/L6K44Fp6MvLywY+9D3fIn6m4P6eYfC5yv8V8T0l8QOQp8f14GvF+JzR7NfB9YnxlYDxmVD6XNntc2W3z5XdPld2+1zZ7XNlt8+V3T5XdvucmS7+3wX8pYAn99+NofNfXvV6+7uE18BPCvjK4F8B30vgK4N/BXwvgS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DLh59K/v4C/FPD0fL/rFvDzf8S3gD94f99H+XWz6/W67Xbe70XG/gX9fH4L+0fG/lX8fG4P+4fK/l39fC4P++fL/vP8A6V/m6I488yEAAAAAElFTkSuQmCC" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover Requerdo Perfumes. Affordable luxury uncompromised through high-quality, long-lasting fragrances inspired by global icons. Based in Pakistan." />
+    <meta name="keywords" content="perfume, luxury fragrance, Requerdo, Bureau, Enigma, Twilight, Pakistan perfumes, affordable luxury" />
+    <meta name="author" content="Requerdo Perfumes" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Requerdo Perfumes | Ethereal Alchemy" />
+    <meta property="og:description" content="High-quality, long-lasting fragrances that capture memories in every bottle." />
+    <meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALySURBVHgB7V2xThtBEMyO8f8f9yM6hNIdEonS0FF6CqVpUqUp6KjofAKFhp7G9AmU3qfQfQKFD6ChpY8IdN5AofMECh8QQmOfEAhvIPQ8AYW3CHTeQLHnLRYY7K69ZndmPDvS50pWp9097Ozs7N6O6AIBY67rOnS73WPTND90XfcnDMNjXdezMAz/hmH4fRzH1+u6/p7n+fVms/m9Wq3+rFarPyLwI9C6ruuzYRh2fN8f9H0/DMPwMwzDv8MwPJXf8f8PwnA/DMNb8v8T3/eXnuf9GoZhOR6P78/OztYisCcB9/r9/r3tdntPAn9NIn4iMT8i8S98S7K/K8Pwmny/S8K/k8B/I1l77XnexaXofDgcLuK4P+C67i0S8AOC7yL8Pgn/vXzP71+v8U746yT658/vO8/zHh8fH/9GoCUBGzYMAxYpInu8/L6K44Fp6MvLywY+9D3fIn6m4P6eYfC5yv8V8T0l8QOQp8f14GvF+JzR7NfB9YnxlYDxmVD6XNntc2W3z5XdPld2+1zZ7XNlt8+V3T5XdvucmS7+3wX8pYAn99+NofNfXvV6+7uE18BPCvjK4F8B30vgK4N/BXwvgS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DLh59K/v4C/FPD0fL/rFvDzf8S3gD94f99H+XWz6/W67Xbe70XG/gX9fH4L+0fG/lX8fG4P+4fK/l39fC4P++fL/vP8A6V/m6I488yEAAAAAElFTkSuQmCC" />
+    <meta property="og:site_name" content="Requerdo Perfumes" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Brand",
+      "name": "Requerdo Perfumes",
+      "description": "Luxury perfume startup redefining accessible high-end fragrances.",
+      "url": "https://requerdo.com",
+      "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALySURBVHgB7V2xThtBEMyO8f8f9yM6hNIdEonS0FF6CqVpUqUp6KjofAKFhp7G9AmU3qfQfQKFD6ChpY8IdN5AofMECh8QQmOfEAhvIPQ8AYW3CHTeQLHnLRYY7K69ZndmPDvS50pWp9097Ozs7N6O6AIBY67rOnS73WPTND90XfcnDMNjXdezMAz/hmH4fRzH1+u6/p7n+fVms/m9Wq3+rFarPyLwI9C6ruuzYRh2fN8f9H0/DMPwMwzDv8MwPJXf8f8PwnA/DMNb8v8T3/eXnuf9GoZhOR6P78/OztYisCcB9/r9/r3tdntPAn9NIn4iMT8i8S98S7K/K8Pwmny/S8K/k8B/I1l77XnexaXofDgcLuK4P+C67i0S8AOC7yL8Pgn/vXzP71+v8U746yT658/vO8/zHh8fH/9GoCUBGzYMAxYpInu8/L6K44Fp6MvLywY+9D3fIn6m4P6eYfC5yv8V8T0l8QOQp8f14GvF+JzR7NfB9YnxlYDxmVD6XNntc2W3z5XdPld2+1zZ7XNlt8+V3T5XdvucmS7+3wX8pYAn99+NofNfXvV6+7uE18BPCvjK4F8B30vgK4N/BXwvgS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DKBLxP4MoEvE/gygS8T+DLh59K/v4C/FPD0fL/rFvDzf8S3gD94f99H+XWz6/W67Xbe70XG/gX9fH4L+0fG/lX8fG4P+4fK/l39fC4P++fL/vP8A6V/m6I488yEAAAAAElFTkSuQmCC"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Lato"', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      @media (pointer: fine) { * { cursor: none !important; } }
+      body {
+        font-family: 'Lato', sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Playfair Display', serif; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #000; }
+      ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #333; }
+      
+      /* Global accessibility focus state */
+      :focus-visible {
+        outline: 1px solid white;
+        outline-offset: 4px;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
